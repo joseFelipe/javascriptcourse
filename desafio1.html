@@ -1,0 +1,115 @@
+<!-- 
+
+-->
+
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <script>
+      // Exercicio 1
+      var endereco = {
+        rua: "Rua José Deeke",
+        numero: 1596,
+        bairro: "Centro",
+        cidade: "Blumenau",
+        uf: "SC"
+      };
+
+      function returnAddress(endereco) {
+        return (
+          "O usuário mora em " +
+          endereco.cidade +
+          " / " +
+          endereco.uf +
+          ", no bairro " +
+          endereco.bairro +
+          ", " +
+          "na rua " +
+          endereco.rua +
+          " com número " +
+          endereco.numero +
+          "."
+        );
+      }
+
+      console.log(returnAddress(endereco));
+
+      // Exercicio 2
+      function pares(x, y) {
+        for (i = x; i < y; i++) {
+          if (i % 2 == 0) {
+            console.log("Números pares: " + i);
+          }
+        }
+      }
+      console.log(pares(1, 10));
+
+      // Exercício 3
+      var skills = ["Javascript", "ReactJS", "React Native"];
+
+      function containSkill(skills) {
+        return skills.indexOf("Javascript") != -1 ? true : false;
+      }
+
+      console.log("Contain Javascript: " + containSkill(skills));
+
+      //Exercício 4
+      function expericence(yearsStudy) {
+        if (yearsStudy < 2) {
+          return "Iniciante";
+        } else if (yearsStudy > 1 && yearsStudy < 4) {
+          return "Intermediário";
+        } else if (yearsStudy > 2 && yearsStudy < 7) {
+          return "Avançado";
+        } else if (yearsStudy > 6) {
+          return "Jedi Master";
+        }
+      }
+      console.log(expericence(2));
+
+      //Exercício 5
+      var users = [
+        {
+          name: "Felipe",
+          skills: ["Javascript", "ReactJS", "Redux"]
+        },
+        {
+          name: "Ricardo",
+          skills: ["VueJS", "Python", "Elixir"]
+        }
+      ];
+
+      //console.log(users);
+
+      function show(users) {
+        for (var user of users) {
+          var allSkills = "";
+          for (i = 0; i <= user.skills.length - 1; i++) {
+            if (i == 0) {
+              allSkills += user.skills[i];
+            } else {
+              allSkills += ", " + user.skills[i];
+            }
+          }
+          console.log(
+            "O " + user.name + " possui as habilidades: " + allSkills
+          );
+        }
+      }
+
+      show(users);
+      /*
+      5º exercício
+        Escreva uma função que produza o seguinte resultado:
+
+        O Diego possui as habilidades: Javascript, ReactJS, Redux
+        O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+        Dica: Para percorrer um vetor você deve utilizar a
+        sintaxe for...of e para unir valores de um array
+        com um separador utilize o join
+      */
+    </script>
+  </body>
+</html>
