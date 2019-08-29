@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <div id="app">
+      <button class="botao">Adicionar novo elemento</button>
+      <hr />
+      <ul></ul>
+      <input type="text" name="nome" />
+      <button onClick="add()">Adicionar</button>
+    </div>
+
+    <script>
+      var buttonElement = document.querySelector("button.botao");
+      var divSquare = document.getElementById("app");
+
+      buttonElement.onclick = function() {
+        var square = document.createElement("div");
+        square.style.width = 100;
+        square.style.height = 100;
+        square.style.backgroundColor = "#f00";
+        square.style.margin = 10;
+
+        square.onmouseover = function() {
+          square.style.backgroundColor = getRandomColor();
+        };
+
+        divSquare.appendChild(square);
+      };
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      var nomes = ["Felipe", "Ricardo", "Guilherme"];
+      var ul = document.querySelector("div#app ul");
+      var inputElement = document.querySelector("div#app input");
+
+      function list() {
+        var nome = "";
+        for (i = 0; i <= nomes.length - 1; i++) {
+          var li = document.createElement("li");
+          var text = document.createTextNode(nomes[i]);
+          li.appendChild(text);
+          ul.appendChild(li);
+        }
+        nomes = [];
+      }
+
+      function add() {
+        if (inputElement.value.trim() == "") {
+          alert("Insira um valor");
+          return false;
+        }
+        nomes.push(inputElement.value);
+        inputElement.value = "";
+        list();
+      }
+
+      window.onload = function() {
+        list();
+      };
+    </script>
+  </body>
+</html>
